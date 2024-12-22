@@ -64,3 +64,12 @@
     opacity: 100%;
   }
 }
+
+.info {
+  display: flex;
+  gap: 8px;
+  color: var(--neutral600);
+  font-size: 12px;
+  line-height: 140%;
+  margin-top: 6px;
+}

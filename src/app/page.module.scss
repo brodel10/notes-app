@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.substitute {
+  text-align: center;
+  padding-top: 24px;
+
+  > p {
+    color: var(--neutral600);
+    line-height: 130%;
+    margin-bottom: 16px;
+  }
+}
+
+.signUp {
+  text-align: center;
+  color: var(--neutral600);
+  line-height: 130%;
+  letter-spacing: -0.2px;
+
+  > a {
+    color: var(--neutral950);
+  }
+}
