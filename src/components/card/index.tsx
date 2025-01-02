@@ -10,22 +10,24 @@ interface AuthCardProps {
 const AuthCard = (props: AuthCardProps) => {
   const { children, title, subtitle } = props;
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <Image
-          src="/images/logo.svg"
-          alt="logo"
-          width={95}
-          height={28}
-          priority
-        />
-        <header className={styles.header}>
-          <h1 className="title">{title}</h1>
-          <p className="subtitle">{subtitle}</p>
-        </header>
-        {children}
+    <main>
+      <div className={styles.container}>
+        <div className={styles.card}>
+          <Image
+            src="/images/logo.svg"
+            alt="logo"
+            width={95}
+            height={28}
+            priority
+          />
+          <header className={styles.header}>
+            <h1 className="title">{title}</h1>
+            <p className="subtitle">{subtitle}</p>
+          </header>
+          {children}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

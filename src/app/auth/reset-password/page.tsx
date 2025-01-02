@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AuthCard from "@/components/card";
 import InputField from "@/components/input";
 import Button from "@/components/button";
@@ -11,25 +11,6 @@ const ResetPasswordPage = () => {
   const [pwd, setPwd] = useState<NewPassword>();
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
-  const [newPwdInputType, setNewPwdInputType] = useState<string>("password");
-  const [confirmPwdInputType, setConfirmPwdInputType] =
-    useState<string>("password");
-
-  useEffect(() => {
-    if (showConfirmPassword) {
-      setConfirmPwdInputType("text");
-    } else {
-      setConfirmPwdInputType("password");
-    }
-  }, [showConfirmPassword]);
-
-  useEffect(() => {
-    if (showNewPassword) {
-      setNewPwdInputType("text");
-    } else {
-      setNewPwdInputType("password");
-    }
-  }, [showNewPassword]);
 
   return (
     <AuthCard
@@ -38,7 +19,7 @@ const ResetPasswordPage = () => {
     >
       <form id="reset-password-form" action="" className={styles.form}>
         <InputField
-          type={newPwdInputType}
+          type="password"
           name="New Password"
           autoCompleteType="new-password"
           showPassword={showNewPassword}
@@ -58,7 +39,7 @@ const ResetPasswordPage = () => {
         />
 
         <InputField
-          type={confirmPwdInputType}
+          type="password"
           name="Confirm New Password"
           autoCompleteType="new-password"
           showPassword={showConfirmPassword}

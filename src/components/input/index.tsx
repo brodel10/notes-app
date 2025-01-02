@@ -2,6 +2,8 @@ import classNames from "classnames";
 import React, {
   HTMLInputAutoCompleteAttribute,
   HTMLInputTypeAttribute,
+  useEffect,
+  useState,
 } from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
@@ -37,8 +39,18 @@ const InputField = (props: InputFieldProps) => {
     min,
   } = props;
 
+  const [pwdType, setPwdType] = useState(type);
+
   const isLogin = autoCompleteType === "current-password";
   const isPassword = autoCompleteType?.includes("password");
+
+  useEffect(() => {
+    if (showPassword) {
+      setPwdType("text");
+    } else {
+      setPwdType(type);
+    }
+  }, [showPassword, type]);
 
   return (
     <div className={classNames(className, styles.inputContainer)}>
@@ -53,7 +65,7 @@ const InputField = (props: InputFieldProps) => {
 
       <input
         key={`${type}-${showPassword || ""}`}
-        type={type}
+        type={pwdType || type}
         placeholder={placeholder}
         className={classNames(styles.input, isPassword)}
         autoComplete={autoCompleteType}
