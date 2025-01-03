@@ -9,10 +9,11 @@ interface LoginPageProps {
   userInfo: UserInfo | undefined;
   formId?: string;
   setUserInfo: (userInfo: UserInfo) => void;
+  handleSubmit: () => Promise<void>;
 }
 
 const LoginPage = (props: LoginPageProps) => {
-  const { userInfo, formId, setUserInfo } = props;
+  const { userInfo, formId, setUserInfo, handleSubmit } = props;
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
@@ -21,7 +22,14 @@ const LoginPage = (props: LoginPageProps) => {
 
   return (
     <>
-      <form id={formId || "login-form"} className={styles.form}>
+      <form
+        id={formId || "login-form"}
+        className={styles.form}
+        onSubmit={(e) => {
+          e?.preventDefault();
+          handleSubmit();
+        }}
+      >
         <InputField
           name="Email Address"
           type="email"
